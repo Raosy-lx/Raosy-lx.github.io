@@ -86,6 +86,7 @@ $(TARGET): $(OBJS)
 $(OBJ)/%.o: $(SRC)/%.c
 	$(CC) -c $(CFLAGS) -o $@ $<
 # 通过源文件生成各个目标文件
+# $< 此处等价于 $(SRC)/%.c
 
 .PHONY: clean
 # clean是伪文件，make过程不会生成
