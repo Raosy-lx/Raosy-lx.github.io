@@ -59,7 +59,7 @@ TARGET = $(BIN)/main
 # 创建可执行文件 main
 
 XX = g++
-CC = c++
+CC = gcc
 # 编译器信息
 
 CFLAGS = -Wall -g -O -I$(INCLUDE)
