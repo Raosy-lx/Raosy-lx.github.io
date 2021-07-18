@@ -1,0 +1,28 @@
+
+package minitask;
+
+message MsgHead
+{
+    enum Type
+    {
+        //通用协议
+        ReqMsg = 1;
+        RspMsg = 2;
+    }
+    optional Type type          = 3;    //表示该消息是请求消息还是响应消息：请求包和响应包必填
+    optional string clientip    = 4;    //客户端ip
+}
+
+// key-val类型
+// repeated KeyValType 相当于c++的map<string, string>
+message KeyValType
+{
+    required string key = 1;
+    optional bytes val = 2;
+}
+
+message KeyValPack
+{
+    repeated KeyValType keyvaltmp = 1;
+}
+
