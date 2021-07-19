@@ -1,17 +1,8 @@
 
 package minitask;
 
-message MsgHead
-{
-    enum Type
-    {
-        //通用协议
-        ReqMsg = 1;
-        RspMsg = 2;
-    }
-    optional Type type          = 3;    //表示该消息是请求消息还是响应消息：请求包和响应包必填
-    optional string clientip    = 4;    //客户端ip
-}
+//包信息定义
+//传输pb消息的详细构造结构：ComHead + Table
 
 // key-val类型
 // repeated KeyValType 相当于c++的map<string, string>
@@ -21,8 +12,30 @@ message KeyValType
     optional bytes val = 2;
 }
 
-message KeyValPack
+message KeyValTab
 {
     repeated KeyValType keyvaltmp = 1;
+}
+
+// master - client/cacheserver 或者 cacheserver - cacheserver 键地址表传输
+// 键与地址类型
+message KeyAddrType
+{
+    required string key = 1;
+    required AddrType sockaddr = 2;
+}
+
+// 地址类型
+message AddrType
+{
+    required string domain = 1; // 域 AF_INET 或 AF_INET6
+    required string addr = 2; // 点分字符串地址
+    required string port = 3;
+}
+
+// 键-地址 表
+message KeyAddrTab
+{
+    repeated KeyAddrType kadrecord = 1;
 }
 

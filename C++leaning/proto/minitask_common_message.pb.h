@@ -23,7 +23,6 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>
 #include <google/protobuf/extension_set.h>
-#include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 // @@protoc_insertion_point(includes)
 
@@ -34,151 +33,13 @@ void  protobuf_AddDesc_minitask_5fcommon_5fmessage_2eproto();
 void protobuf_AssignDesc_minitask_5fcommon_5fmessage_2eproto();
 void protobuf_ShutdownFile_minitask_5fcommon_5fmessage_2eproto();
 
-class MsgHead;
 class KeyValType;
-class KeyValPack;
+class KeyValTab;
+class KeyAddrType;
+class AddrType;
+class KeyAddrTab;
 
-enum MsgHead_Type {
-  MsgHead_Type_ReqMsg = 1,
-  MsgHead_Type_RspMsg = 2
-};
-bool MsgHead_Type_IsValid(int value);
-const MsgHead_Type MsgHead_Type_Type_MIN = MsgHead_Type_ReqMsg;
-const MsgHead_Type MsgHead_Type_Type_MAX = MsgHead_Type_RspMsg;
-const int MsgHead_Type_Type_ARRAYSIZE = MsgHead_Type_Type_MAX + 1;
-
-const ::google::protobuf::EnumDescriptor* MsgHead_Type_descriptor();
-inline const ::std::string& MsgHead_Type_Name(MsgHead_Type value) {
-  return ::google::protobuf::internal::NameOfEnum(
-    MsgHead_Type_descriptor(), value);
-}
-inline bool MsgHead_Type_Parse(
-    const ::std::string& name, MsgHead_Type* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<MsgHead_Type>(
-    MsgHead_Type_descriptor(), name, value);
-}
 // ===================================================================
-
-class MsgHead : public ::google::protobuf::Message {
- public:
-  MsgHead();
-  virtual ~MsgHead();
-
-  MsgHead(const MsgHead& from);
-
-  inline MsgHead& operator=(const MsgHead& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const MsgHead& default_instance();
-
-  void Swap(MsgHead* other);
-
-  // implements Message ----------------------------------------------
-
-  MsgHead* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const MsgHead& from);
-  void MergeFrom(const MsgHead& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  typedef MsgHead_Type Type;
-  static const Type ReqMsg = MsgHead_Type_ReqMsg;
-  static const Type RspMsg = MsgHead_Type_RspMsg;
-  static inline bool Type_IsValid(int value) {
-    return MsgHead_Type_IsValid(value);
-  }
-  static const Type Type_MIN =
-    MsgHead_Type_Type_MIN;
-  static const Type Type_MAX =
-    MsgHead_Type_Type_MAX;
-  static const int Type_ARRAYSIZE =
-    MsgHead_Type_Type_ARRAYSIZE;
-  static inline const ::google::protobuf::EnumDescriptor*
-  Type_descriptor() {
-    return MsgHead_Type_descriptor();
-  }
-  static inline const ::std::string& Type_Name(Type value) {
-    return MsgHead_Type_Name(value);
-  }
-  static inline bool Type_Parse(const ::std::string& name,
-      Type* value) {
-    return MsgHead_Type_Parse(name, value);
-  }
-
-  // accessors -------------------------------------------------------
-
-  // optional .minitask.MsgHead.Type type = 3;
-  inline bool has_type() const;
-  inline void clear_type();
-  static const int kTypeFieldNumber = 3;
-  inline ::minitask::MsgHead_Type type() const;
-  inline void set_type(::minitask::MsgHead_Type value);
-
-  // optional string clientip = 4;
-  inline bool has_clientip() const;
-  inline void clear_clientip();
-  static const int kClientipFieldNumber = 4;
-  inline const ::std::string& clientip() const;
-  inline void set_clientip(const ::std::string& value);
-  inline void set_clientip(const char* value);
-  inline void set_clientip(const char* value, size_t size);
-  inline ::std::string* mutable_clientip();
-  inline ::std::string* release_clientip();
-  inline void set_allocated_clientip(::std::string* clientip);
-
-  // @@protoc_insertion_point(class_scope:minitask.MsgHead)
- private:
-  inline void set_has_type();
-  inline void clear_has_type();
-  inline void set_has_clientip();
-  inline void clear_has_clientip();
-
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-
-  ::std::string* clientip_;
-  int type_;
-
-  mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
-
-  friend void  protobuf_AddDesc_minitask_5fcommon_5fmessage_2eproto();
-  friend void protobuf_AssignDesc_minitask_5fcommon_5fmessage_2eproto();
-  friend void protobuf_ShutdownFile_minitask_5fcommon_5fmessage_2eproto();
-
-  void InitAsDefaultInstance();
-  static MsgHead* default_instance_;
-};
-// -------------------------------------------------------------------
 
 class KeyValType : public ::google::protobuf::Message {
  public:
@@ -282,14 +143,14 @@ class KeyValType : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class KeyValPack : public ::google::protobuf::Message {
+class KeyValTab : public ::google::protobuf::Message {
  public:
-  KeyValPack();
-  virtual ~KeyValPack();
+  KeyValTab();
+  virtual ~KeyValTab();
 
-  KeyValPack(const KeyValPack& from);
+  KeyValTab(const KeyValTab& from);
 
-  inline KeyValPack& operator=(const KeyValPack& from) {
+  inline KeyValTab& operator=(const KeyValTab& from) {
     CopyFrom(from);
     return *this;
   }
@@ -303,17 +164,17 @@ class KeyValPack : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const KeyValPack& default_instance();
+  static const KeyValTab& default_instance();
 
-  void Swap(KeyValPack* other);
+  void Swap(KeyValTab* other);
 
   // implements Message ----------------------------------------------
 
-  KeyValPack* New() const;
+  KeyValTab* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const KeyValPack& from);
-  void MergeFrom(const KeyValPack& from);
+  void CopyFrom(const KeyValTab& from);
+  void MergeFrom(const KeyValTab& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -348,7 +209,7 @@ class KeyValPack : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::minitask::KeyValType >*
       mutable_keyvaltmp();
 
-  // @@protoc_insertion_point(class_scope:minitask.KeyValPack)
+  // @@protoc_insertion_point(class_scope:minitask.KeyValTab)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
@@ -363,109 +224,313 @@ class KeyValPack : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_minitask_5fcommon_5fmessage_2eproto();
 
   void InitAsDefaultInstance();
-  static KeyValPack* default_instance_;
+  static KeyValTab* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class KeyAddrType : public ::google::protobuf::Message {
+ public:
+  KeyAddrType();
+  virtual ~KeyAddrType();
+
+  KeyAddrType(const KeyAddrType& from);
+
+  inline KeyAddrType& operator=(const KeyAddrType& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const KeyAddrType& default_instance();
+
+  void Swap(KeyAddrType* other);
+
+  // implements Message ----------------------------------------------
+
+  KeyAddrType* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const KeyAddrType& from);
+  void MergeFrom(const KeyAddrType& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required string key = 1;
+  inline bool has_key() const;
+  inline void clear_key();
+  static const int kKeyFieldNumber = 1;
+  inline const ::std::string& key() const;
+  inline void set_key(const ::std::string& value);
+  inline void set_key(const char* value);
+  inline void set_key(const char* value, size_t size);
+  inline ::std::string* mutable_key();
+  inline ::std::string* release_key();
+  inline void set_allocated_key(::std::string* key);
+
+  // required .minitask.AddrType sockaddr = 2;
+  inline bool has_sockaddr() const;
+  inline void clear_sockaddr();
+  static const int kSockaddrFieldNumber = 2;
+  inline const ::minitask::AddrType& sockaddr() const;
+  inline ::minitask::AddrType* mutable_sockaddr();
+  inline ::minitask::AddrType* release_sockaddr();
+  inline void set_allocated_sockaddr(::minitask::AddrType* sockaddr);
+
+  // @@protoc_insertion_point(class_scope:minitask.KeyAddrType)
+ private:
+  inline void set_has_key();
+  inline void clear_has_key();
+  inline void set_has_sockaddr();
+  inline void clear_has_sockaddr();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::std::string* key_;
+  ::minitask::AddrType* sockaddr_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_minitask_5fcommon_5fmessage_2eproto();
+  friend void protobuf_AssignDesc_minitask_5fcommon_5fmessage_2eproto();
+  friend void protobuf_ShutdownFile_minitask_5fcommon_5fmessage_2eproto();
+
+  void InitAsDefaultInstance();
+  static KeyAddrType* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class AddrType : public ::google::protobuf::Message {
+ public:
+  AddrType();
+  virtual ~AddrType();
+
+  AddrType(const AddrType& from);
+
+  inline AddrType& operator=(const AddrType& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const AddrType& default_instance();
+
+  void Swap(AddrType* other);
+
+  // implements Message ----------------------------------------------
+
+  AddrType* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const AddrType& from);
+  void MergeFrom(const AddrType& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required string domain = 1;
+  inline bool has_domain() const;
+  inline void clear_domain();
+  static const int kDomainFieldNumber = 1;
+  inline const ::std::string& domain() const;
+  inline void set_domain(const ::std::string& value);
+  inline void set_domain(const char* value);
+  inline void set_domain(const char* value, size_t size);
+  inline ::std::string* mutable_domain();
+  inline ::std::string* release_domain();
+  inline void set_allocated_domain(::std::string* domain);
+
+  // required string addr = 2;
+  inline bool has_addr() const;
+  inline void clear_addr();
+  static const int kAddrFieldNumber = 2;
+  inline const ::std::string& addr() const;
+  inline void set_addr(const ::std::string& value);
+  inline void set_addr(const char* value);
+  inline void set_addr(const char* value, size_t size);
+  inline ::std::string* mutable_addr();
+  inline ::std::string* release_addr();
+  inline void set_allocated_addr(::std::string* addr);
+
+  // required string port = 3;
+  inline bool has_port() const;
+  inline void clear_port();
+  static const int kPortFieldNumber = 3;
+  inline const ::std::string& port() const;
+  inline void set_port(const ::std::string& value);
+  inline void set_port(const char* value);
+  inline void set_port(const char* value, size_t size);
+  inline ::std::string* mutable_port();
+  inline ::std::string* release_port();
+  inline void set_allocated_port(::std::string* port);
+
+  // @@protoc_insertion_point(class_scope:minitask.AddrType)
+ private:
+  inline void set_has_domain();
+  inline void clear_has_domain();
+  inline void set_has_addr();
+  inline void clear_has_addr();
+  inline void set_has_port();
+  inline void clear_has_port();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::std::string* domain_;
+  ::std::string* addr_;
+  ::std::string* port_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_minitask_5fcommon_5fmessage_2eproto();
+  friend void protobuf_AssignDesc_minitask_5fcommon_5fmessage_2eproto();
+  friend void protobuf_ShutdownFile_minitask_5fcommon_5fmessage_2eproto();
+
+  void InitAsDefaultInstance();
+  static AddrType* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class KeyAddrTab : public ::google::protobuf::Message {
+ public:
+  KeyAddrTab();
+  virtual ~KeyAddrTab();
+
+  KeyAddrTab(const KeyAddrTab& from);
+
+  inline KeyAddrTab& operator=(const KeyAddrTab& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const KeyAddrTab& default_instance();
+
+  void Swap(KeyAddrTab* other);
+
+  // implements Message ----------------------------------------------
+
+  KeyAddrTab* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const KeyAddrTab& from);
+  void MergeFrom(const KeyAddrTab& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .minitask.KeyAddrType kadrecord = 1;
+  inline int kadrecord_size() const;
+  inline void clear_kadrecord();
+  static const int kKadrecordFieldNumber = 1;
+  inline const ::minitask::KeyAddrType& kadrecord(int index) const;
+  inline ::minitask::KeyAddrType* mutable_kadrecord(int index);
+  inline ::minitask::KeyAddrType* add_kadrecord();
+  inline const ::google::protobuf::RepeatedPtrField< ::minitask::KeyAddrType >&
+      kadrecord() const;
+  inline ::google::protobuf::RepeatedPtrField< ::minitask::KeyAddrType >*
+      mutable_kadrecord();
+
+  // @@protoc_insertion_point(class_scope:minitask.KeyAddrTab)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::minitask::KeyAddrType > kadrecord_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_minitask_5fcommon_5fmessage_2eproto();
+  friend void protobuf_AssignDesc_minitask_5fcommon_5fmessage_2eproto();
+  friend void protobuf_ShutdownFile_minitask_5fcommon_5fmessage_2eproto();
+
+  void InitAsDefaultInstance();
+  static KeyAddrTab* default_instance_;
 };
 // ===================================================================
 
 
 // ===================================================================
-
-// MsgHead
-
-// optional .minitask.MsgHead.Type type = 3;
-inline bool MsgHead::has_type() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void MsgHead::set_has_type() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void MsgHead::clear_has_type() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void MsgHead::clear_type() {
-  type_ = 1;
-  clear_has_type();
-}
-inline ::minitask::MsgHead_Type MsgHead::type() const {
-  return static_cast< ::minitask::MsgHead_Type >(type_);
-}
-inline void MsgHead::set_type(::minitask::MsgHead_Type value) {
-  assert(::minitask::MsgHead_Type_IsValid(value));
-  set_has_type();
-  type_ = value;
-}
-
-// optional string clientip = 4;
-inline bool MsgHead::has_clientip() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void MsgHead::set_has_clientip() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void MsgHead::clear_has_clientip() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void MsgHead::clear_clientip() {
-  if (clientip_ != &::google::protobuf::internal::kEmptyString) {
-    clientip_->clear();
-  }
-  clear_has_clientip();
-}
-inline const ::std::string& MsgHead::clientip() const {
-  return *clientip_;
-}
-inline void MsgHead::set_clientip(const ::std::string& value) {
-  set_has_clientip();
-  if (clientip_ == &::google::protobuf::internal::kEmptyString) {
-    clientip_ = new ::std::string;
-  }
-  clientip_->assign(value);
-}
-inline void MsgHead::set_clientip(const char* value) {
-  set_has_clientip();
-  if (clientip_ == &::google::protobuf::internal::kEmptyString) {
-    clientip_ = new ::std::string;
-  }
-  clientip_->assign(value);
-}
-inline void MsgHead::set_clientip(const char* value, size_t size) {
-  set_has_clientip();
-  if (clientip_ == &::google::protobuf::internal::kEmptyString) {
-    clientip_ = new ::std::string;
-  }
-  clientip_->assign(reinterpret_cast<const char*>(value), size);
-}
-inline ::std::string* MsgHead::mutable_clientip() {
-  set_has_clientip();
-  if (clientip_ == &::google::protobuf::internal::kEmptyString) {
-    clientip_ = new ::std::string;
-  }
-  return clientip_;
-}
-inline ::std::string* MsgHead::release_clientip() {
-  clear_has_clientip();
-  if (clientip_ == &::google::protobuf::internal::kEmptyString) {
-    return NULL;
-  } else {
-    ::std::string* temp = clientip_;
-    clientip_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-    return temp;
-  }
-}
-inline void MsgHead::set_allocated_clientip(::std::string* clientip) {
-  if (clientip_ != &::google::protobuf::internal::kEmptyString) {
-    delete clientip_;
-  }
-  if (clientip) {
-    set_has_clientip();
-    clientip_ = clientip;
-  } else {
-    clear_has_clientip();
-    clientip_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  }
-}
-
-// -------------------------------------------------------------------
 
 // KeyValType
 
@@ -611,31 +676,386 @@ inline void KeyValType::set_allocated_val(::std::string* val) {
 
 // -------------------------------------------------------------------
 
-// KeyValPack
+// KeyValTab
 
 // repeated .minitask.KeyValType keyvaltmp = 1;
-inline int KeyValPack::keyvaltmp_size() const {
+inline int KeyValTab::keyvaltmp_size() const {
   return keyvaltmp_.size();
 }
-inline void KeyValPack::clear_keyvaltmp() {
+inline void KeyValTab::clear_keyvaltmp() {
   keyvaltmp_.Clear();
 }
-inline const ::minitask::KeyValType& KeyValPack::keyvaltmp(int index) const {
+inline const ::minitask::KeyValType& KeyValTab::keyvaltmp(int index) const {
   return keyvaltmp_.Get(index);
 }
-inline ::minitask::KeyValType* KeyValPack::mutable_keyvaltmp(int index) {
+inline ::minitask::KeyValType* KeyValTab::mutable_keyvaltmp(int index) {
   return keyvaltmp_.Mutable(index);
 }
-inline ::minitask::KeyValType* KeyValPack::add_keyvaltmp() {
+inline ::minitask::KeyValType* KeyValTab::add_keyvaltmp() {
   return keyvaltmp_.Add();
 }
 inline const ::google::protobuf::RepeatedPtrField< ::minitask::KeyValType >&
-KeyValPack::keyvaltmp() const {
+KeyValTab::keyvaltmp() const {
   return keyvaltmp_;
 }
 inline ::google::protobuf::RepeatedPtrField< ::minitask::KeyValType >*
-KeyValPack::mutable_keyvaltmp() {
+KeyValTab::mutable_keyvaltmp() {
   return &keyvaltmp_;
+}
+
+// -------------------------------------------------------------------
+
+// KeyAddrType
+
+// required string key = 1;
+inline bool KeyAddrType::has_key() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void KeyAddrType::set_has_key() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void KeyAddrType::clear_has_key() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void KeyAddrType::clear_key() {
+  if (key_ != &::google::protobuf::internal::kEmptyString) {
+    key_->clear();
+  }
+  clear_has_key();
+}
+inline const ::std::string& KeyAddrType::key() const {
+  return *key_;
+}
+inline void KeyAddrType::set_key(const ::std::string& value) {
+  set_has_key();
+  if (key_ == &::google::protobuf::internal::kEmptyString) {
+    key_ = new ::std::string;
+  }
+  key_->assign(value);
+}
+inline void KeyAddrType::set_key(const char* value) {
+  set_has_key();
+  if (key_ == &::google::protobuf::internal::kEmptyString) {
+    key_ = new ::std::string;
+  }
+  key_->assign(value);
+}
+inline void KeyAddrType::set_key(const char* value, size_t size) {
+  set_has_key();
+  if (key_ == &::google::protobuf::internal::kEmptyString) {
+    key_ = new ::std::string;
+  }
+  key_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* KeyAddrType::mutable_key() {
+  set_has_key();
+  if (key_ == &::google::protobuf::internal::kEmptyString) {
+    key_ = new ::std::string;
+  }
+  return key_;
+}
+inline ::std::string* KeyAddrType::release_key() {
+  clear_has_key();
+  if (key_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = key_;
+    key_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void KeyAddrType::set_allocated_key(::std::string* key) {
+  if (key_ != &::google::protobuf::internal::kEmptyString) {
+    delete key_;
+  }
+  if (key) {
+    set_has_key();
+    key_ = key;
+  } else {
+    clear_has_key();
+    key_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// required .minitask.AddrType sockaddr = 2;
+inline bool KeyAddrType::has_sockaddr() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void KeyAddrType::set_has_sockaddr() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void KeyAddrType::clear_has_sockaddr() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void KeyAddrType::clear_sockaddr() {
+  if (sockaddr_ != NULL) sockaddr_->::minitask::AddrType::Clear();
+  clear_has_sockaddr();
+}
+inline const ::minitask::AddrType& KeyAddrType::sockaddr() const {
+  return sockaddr_ != NULL ? *sockaddr_ : *default_instance_->sockaddr_;
+}
+inline ::minitask::AddrType* KeyAddrType::mutable_sockaddr() {
+  set_has_sockaddr();
+  if (sockaddr_ == NULL) sockaddr_ = new ::minitask::AddrType;
+  return sockaddr_;
+}
+inline ::minitask::AddrType* KeyAddrType::release_sockaddr() {
+  clear_has_sockaddr();
+  ::minitask::AddrType* temp = sockaddr_;
+  sockaddr_ = NULL;
+  return temp;
+}
+inline void KeyAddrType::set_allocated_sockaddr(::minitask::AddrType* sockaddr) {
+  delete sockaddr_;
+  sockaddr_ = sockaddr;
+  if (sockaddr) {
+    set_has_sockaddr();
+  } else {
+    clear_has_sockaddr();
+  }
+}
+
+// -------------------------------------------------------------------
+
+// AddrType
+
+// required string domain = 1;
+inline bool AddrType::has_domain() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void AddrType::set_has_domain() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void AddrType::clear_has_domain() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void AddrType::clear_domain() {
+  if (domain_ != &::google::protobuf::internal::kEmptyString) {
+    domain_->clear();
+  }
+  clear_has_domain();
+}
+inline const ::std::string& AddrType::domain() const {
+  return *domain_;
+}
+inline void AddrType::set_domain(const ::std::string& value) {
+  set_has_domain();
+  if (domain_ == &::google::protobuf::internal::kEmptyString) {
+    domain_ = new ::std::string;
+  }
+  domain_->assign(value);
+}
+inline void AddrType::set_domain(const char* value) {
+  set_has_domain();
+  if (domain_ == &::google::protobuf::internal::kEmptyString) {
+    domain_ = new ::std::string;
+  }
+  domain_->assign(value);
+}
+inline void AddrType::set_domain(const char* value, size_t size) {
+  set_has_domain();
+  if (domain_ == &::google::protobuf::internal::kEmptyString) {
+    domain_ = new ::std::string;
+  }
+  domain_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* AddrType::mutable_domain() {
+  set_has_domain();
+  if (domain_ == &::google::protobuf::internal::kEmptyString) {
+    domain_ = new ::std::string;
+  }
+  return domain_;
+}
+inline ::std::string* AddrType::release_domain() {
+  clear_has_domain();
+  if (domain_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = domain_;
+    domain_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void AddrType::set_allocated_domain(::std::string* domain) {
+  if (domain_ != &::google::protobuf::internal::kEmptyString) {
+    delete domain_;
+  }
+  if (domain) {
+    set_has_domain();
+    domain_ = domain;
+  } else {
+    clear_has_domain();
+    domain_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// required string addr = 2;
+inline bool AddrType::has_addr() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void AddrType::set_has_addr() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void AddrType::clear_has_addr() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void AddrType::clear_addr() {
+  if (addr_ != &::google::protobuf::internal::kEmptyString) {
+    addr_->clear();
+  }
+  clear_has_addr();
+}
+inline const ::std::string& AddrType::addr() const {
+  return *addr_;
+}
+inline void AddrType::set_addr(const ::std::string& value) {
+  set_has_addr();
+  if (addr_ == &::google::protobuf::internal::kEmptyString) {
+    addr_ = new ::std::string;
+  }
+  addr_->assign(value);
+}
+inline void AddrType::set_addr(const char* value) {
+  set_has_addr();
+  if (addr_ == &::google::protobuf::internal::kEmptyString) {
+    addr_ = new ::std::string;
+  }
+  addr_->assign(value);
+}
+inline void AddrType::set_addr(const char* value, size_t size) {
+  set_has_addr();
+  if (addr_ == &::google::protobuf::internal::kEmptyString) {
+    addr_ = new ::std::string;
+  }
+  addr_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* AddrType::mutable_addr() {
+  set_has_addr();
+  if (addr_ == &::google::protobuf::internal::kEmptyString) {
+    addr_ = new ::std::string;
+  }
+  return addr_;
+}
+inline ::std::string* AddrType::release_addr() {
+  clear_has_addr();
+  if (addr_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = addr_;
+    addr_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void AddrType::set_allocated_addr(::std::string* addr) {
+  if (addr_ != &::google::protobuf::internal::kEmptyString) {
+    delete addr_;
+  }
+  if (addr) {
+    set_has_addr();
+    addr_ = addr;
+  } else {
+    clear_has_addr();
+    addr_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// required string port = 3;
+inline bool AddrType::has_port() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void AddrType::set_has_port() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void AddrType::clear_has_port() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void AddrType::clear_port() {
+  if (port_ != &::google::protobuf::internal::kEmptyString) {
+    port_->clear();
+  }
+  clear_has_port();
+}
+inline const ::std::string& AddrType::port() const {
+  return *port_;
+}
+inline void AddrType::set_port(const ::std::string& value) {
+  set_has_port();
+  if (port_ == &::google::protobuf::internal::kEmptyString) {
+    port_ = new ::std::string;
+  }
+  port_->assign(value);
+}
+inline void AddrType::set_port(const char* value) {
+  set_has_port();
+  if (port_ == &::google::protobuf::internal::kEmptyString) {
+    port_ = new ::std::string;
+  }
+  port_->assign(value);
+}
+inline void AddrType::set_port(const char* value, size_t size) {
+  set_has_port();
+  if (port_ == &::google::protobuf::internal::kEmptyString) {
+    port_ = new ::std::string;
+  }
+  port_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* AddrType::mutable_port() {
+  set_has_port();
+  if (port_ == &::google::protobuf::internal::kEmptyString) {
+    port_ = new ::std::string;
+  }
+  return port_;
+}
+inline ::std::string* AddrType::release_port() {
+  clear_has_port();
+  if (port_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = port_;
+    port_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void AddrType::set_allocated_port(::std::string* port) {
+  if (port_ != &::google::protobuf::internal::kEmptyString) {
+    delete port_;
+  }
+  if (port) {
+    set_has_port();
+    port_ = port;
+  } else {
+    clear_has_port();
+    port_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// -------------------------------------------------------------------
+
+// KeyAddrTab
+
+// repeated .minitask.KeyAddrType kadrecord = 1;
+inline int KeyAddrTab::kadrecord_size() const {
+  return kadrecord_.size();
+}
+inline void KeyAddrTab::clear_kadrecord() {
+  kadrecord_.Clear();
+}
+inline const ::minitask::KeyAddrType& KeyAddrTab::kadrecord(int index) const {
+  return kadrecord_.Get(index);
+}
+inline ::minitask::KeyAddrType* KeyAddrTab::mutable_kadrecord(int index) {
+  return kadrecord_.Mutable(index);
+}
+inline ::minitask::KeyAddrType* KeyAddrTab::add_kadrecord() {
+  return kadrecord_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::minitask::KeyAddrType >&
+KeyAddrTab::kadrecord() const {
+  return kadrecord_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::minitask::KeyAddrType >*
+KeyAddrTab::mutable_kadrecord() {
+  return &kadrecord_;
 }
 
 
@@ -647,10 +1067,6 @@ KeyValPack::mutable_keyvaltmp() {
 namespace google {
 namespace protobuf {
 
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::minitask::MsgHead_Type>() {
-  return ::minitask::MsgHead_Type_descriptor();
-}
 
 }  // namespace google
 }  // namespace protobuf
