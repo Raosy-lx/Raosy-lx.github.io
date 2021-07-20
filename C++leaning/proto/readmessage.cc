@@ -1,4 +1,5 @@
-#include "./minitask_common_message.pb.h"
+#include "minitask_common_message.pb.h"
+#include "minitask_common_message_helper.h"
 #include <iostream>
 #include <fstream>
 #include <string.h>
@@ -49,19 +50,25 @@ std::string set_keyaddrtab()
     minitask::KeyAddrTab KApackage;
 
     minitask::KeyAddrType *p1 = KApackage.add_kadrecord(); //新增一对键地址
-    minitask::AddrType *p1addr = new minitask::AddrType;
+    // minitask::AddrType *p1addr = new minitask::AddrType;
+    // p1addr->set_addr("127.0.0.1");
+    // p1addr->set_domain("AF_INET");
+    // p1addr->set_port("5574");
+    // p1->set_key("mike");
+    // p1->set_allocated_sockaddr(p1addr);
+
+    p1->set_key("mike");
+    minitask::AddrType *p1addr = p1->mutable_sockaddr();
     p1addr->set_addr("127.0.0.1");
     p1addr->set_domain("AF_INET");
     p1addr->set_port("5574");
-    p1->set_key("mike");
-    p1->set_allocated_sockaddr(p1addr);
 
     //std::fstream output("pbKA.xxx", std::ios::out | std::ios::trunc | std::ios::binary);
     std::string output = "";
     bool flag = KApackage.SerializeToString(&output);//序列化
     if (!flag)
     {
-        std::cerr << "Failed to write file." << std::endl;
+        std::cerr << "Failed to write string." << std::endl;
         return "";
     }
 
@@ -76,7 +83,7 @@ void get_keyaddrtab(std::string input)
     bool flag = KApackage.ParseFromArray(input.data(), input.size());  //反序列化
     if (!flag)
     {
-        std::cerr << "Failed to read file." << std::endl;
+        std::cerr << "Failed to read string." << std::endl;
         return;
     }
     //input.close(); //关闭文件
@@ -104,5 +111,37 @@ int main(int argc, char* argv[]) {
     std::cout << "set OK" << std::endl;
     get_keyaddrtab(output);
     std::cout << "get OK" << std::endl;
+    // 新增键值过程
+    minitask::KeyValTab KVpackage;
+
+    minitask::KeyValType *kv1 = KVpackage.add_keyvaltmp(); //新增一对键值
+    kv1->set_key("mike");
+    kv1->set_val("mikekey");
+    // minitask::BuildType(kv1, "mike", "mikekey");
+
+    // 新增键地址过程
+    minitask::KeyAddrTab KApackage;
+    
+    minitask::KeyAddrType *ka1 = KApackage.add_kadrecord(); //新增一对键地址
+    minitask::BuildType(ka1, "make", "AF_INET", "127.0.0.1", "5574");
+
+
+    // 打包传输过程
+    std::string sendstr = "";
+    if(minitask::pack_msg(sendstr, KVpackage))
+    {
+        std::cout << "pack error" << std::endl;
+    }
+    uint32_t packlen = 0;
+    if((packlen = minitask::check_pack_complete(sendstr.data(), sendstr.size())) <= 0)
+    {
+        std::cout << "pack not complete" << std::endl;
+    };
+    minitask::KeyValTab KVunpackage;
+    if(minitask::unpack_msg(sendstr.data(), sendstr.size(), KVunpackage))
+    {
+        std::cout << "unpack error" << std::endl;
+    }
+    std::cout << "Fini" << std::endl;
     return 0;
 }
