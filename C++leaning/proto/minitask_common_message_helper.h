@@ -1,20 +1,3 @@
-/*
- * =====================================================================================
- *
- *       Filename:  minitask_common_message_helper.h
- *
- *    Description:  
- *
- *        Version:  1.0
- *        Created:  07/20/2021 02:52:24 PM
- *       Revision:  none
- *       Compiler:  g++
- *
- *         Author:  oulixiluo (luoxi), oulixiluo@tencent.com
- *        Company:  Tencent, China
- *
- * =====================================================================================
- */
 
 #ifndef _MINITASK_COMMON_MESSAGE_HELPER_H_
 #define _MINITASK_COMMON_MESSAGE_HELPER_H_
