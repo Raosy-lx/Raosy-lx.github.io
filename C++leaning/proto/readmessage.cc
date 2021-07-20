@@ -73,7 +73,7 @@ void get_keyaddrtab(std::string input)
 {
     minitask::KeyAddrTab KApackage;
     //std::fstream input("./pbKA.xxx", std::ios::in | std::ios::binary);
-    bool flag = KApackage.ParseFromArray(&input, input.size());  //反序列化
+    bool flag = KApackage.ParseFromArray(input.data(), input.size());  //反序列化
     if (!flag)
     {
         std::cerr << "Failed to read file." << std::endl;
