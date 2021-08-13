@@ -1,0 +1,6 @@
+#ifndef _CPPLEARNING_MEMPOOL_HELPER_H_
+#define _CPPLEARNING_MEMPOOL_HELPER_H_
+
+#define _THREAD_SAFE
+
+#endif

@@ -9,6 +9,7 @@ XX = g++
 CC = gcc
 CFLAGS = -Wall -g -O -I$(INCLUDE) -std=c++11 -lpthread
 LIBS = -lm
+all: $(TARGET)
 $(TARGET): $(OBJS)
 	$(XX) $^ $(CFLAGS) -o $@ 
 $(OBJ)/%.o: $(SRC)/%.cc
